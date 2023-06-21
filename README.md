@@ -1,5 +1,7 @@
 # EFwithDotNETCoreAndAngular
-Implementation of Angular with .Net Core
-demo GEt & Add method using rest API
-Entity framework code first 
-Dependency Injection example
+This is a demo project . This shows code first approach for EF with COre. 
+SQL server local database is used . 
+Its also an example of dependency injection , loose coupled code. 
+The WebAPIs are consumed by the client app which is coded in angular.
+GET & POST are implemented. 
+

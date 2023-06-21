@@ -6,36 +6,19 @@ namespace Project1.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class CompanyController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CompanyController> _logger;
         private readonly ICompanyBusiness companybusiness;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICompanyBusiness companybusiness)
+        public CompanyController(ILogger<CompanyController> logger, ICompanyBusiness companybusiness)
         {
             _logger = logger;
             this.companybusiness = companybusiness;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            
-
-
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
 
         /// <summary>
         /// Fetch all company records

@@ -20,13 +20,22 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="DataAccessLayer\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="DataAccessLayer\**" />
+    <EmbeddedResource Remove="DataAccessLayer\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="DataAccessLayer\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="WeatherForecast.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\Model\CompanyResponse.ts" />
+    <None Remove="Controllers\db-creation.sql" />
   </ItemGroup>
 
   <ItemGroup>

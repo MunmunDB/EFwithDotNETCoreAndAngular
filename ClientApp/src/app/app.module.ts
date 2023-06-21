@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CompFetchDataComponent } from './company/comp-fetch-data.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { CompanyService } from './Service/company.service';
@@ -22,8 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     CompFetchDataComponent,
     AddCompanyComponent
   ],
@@ -34,8 +30,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'comp-fetch-data', component: CompFetchDataComponent },
       { path: 'add-company', component: AddCompanyComponent },
     ])

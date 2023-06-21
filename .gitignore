@@ -230,3 +230,6 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /ClientApp/.angular/cache/*
+/ClientApp/.angular/cache/15.1.6/angular-webpack/96eb6f4be617b1cbcba14681f26261a66ddf6923/0.pack
+/ClientApp/.angular/cache/15.1.6/angular-webpack/96eb6f4be617b1cbcba14681f26261a66ddf6923/3.pack
+/ClientApp/.angular/cache/15.1.6/angular-webpack/96eb6f4be617b1cbcba14681f26261a66ddf6923/8.pack
