@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccessLayer
 {
@@ -19,14 +20,14 @@ namespace DataAccessLayer
     }
     public class EFDataContext : DbContext , IEFDataContext
     {
-        
+        string conn;
          DbSet<CompanyDB> CompanyDBs { get; set; }
          DbSet<InvestorDB> InvestorsDB { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"data source=(localdb)\MSSQLLocalDB; initial catalog=Downing.Investment.Database;persist security info=True; Integrated Security=SSPI;");
+            optionsBuilder.UseSqlServer(conn);
         }
-
+        public EFDataContext(IConfiguration configuration) { conn = configuration.GetConnectionString("EFConnStr"); }
   
         List<CompanyDB> IEFDataContext.Get()
         {

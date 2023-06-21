@@ -8,3 +8,5 @@ GET & POST are implemented.
 SQL Connection is in DBContext : 
 @"data source=(localdb)\MSSQLLocalDB; initial catalog=Downing.Investment.Database;persist security info=True; Integrated Security=SSPI;"
 
+THE CONNECTION STRING NEEDS MODIFICATION TO BE ABLE TO RUN THE APIs
+
