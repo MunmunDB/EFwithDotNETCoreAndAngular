@@ -16,7 +16,7 @@ export class AddCompanyComponent implements OnInit {
   companyform!: NgForm;
   isSubmitted: boolean = false;
   angForm!: FormGroup;
-  message = '';
+  message:string = '';
   constructor(private router: Router, private service: CompanyService, private fb: FormBuilder) { this.createForm(); }
 
   ngOnInit(): void { }
@@ -24,7 +24,11 @@ export class AddCompanyComponent implements OnInit {
     this.isSubmitted = true;
     if (isValid) {
       this.message = 'create record';
-       this.service.AddCompany(this.addCompanyForm);
+      this.service.AddCompany(this.addCompanyForm).subscribe(p => {
+        console.log(p);
+        this.message = p.message;
+      });
+      
     }
   }
   createForm() {

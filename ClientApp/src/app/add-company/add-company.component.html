@@ -23,7 +23,7 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" id="companyName" required maxlength="100"
                      [(ngModel)]="addCompanyForm.companyName" name="companyName" #companyName="ngModel">
-              <div *ngIf="companyForm.controls['companyName'].invalid && (companyForm.controls['companyName'].dirty || companyForm.controls['companyName'].touched)" class="alert alert-danger">
+              <div *ngIf="companyForm.controls['companyName'] && (companyForm.controls['companyName'].invalid && (companyForm.controls['companyName'].dirty || companyForm.controls['companyName'].touched))" class="alert alert-danger">
 
                 <div *ngIf="companyName.errors?.['required']">
                   Name is required.
@@ -39,7 +39,7 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" id="code" required maxlength="10" pattern="^[A-Z0-9_-]*$"
                      [(ngModel)]="addCompanyForm.code" name="code" #code="ngModel">
-              <div *ngIf="companyForm.controls['code'].invalid && (companyForm.controls['code'].dirty || companyForm.controls['code'].touched)" class="alert alert-danger">
+              <div *ngIf="companyForm.controls['code'] && (companyForm.controls['code'].invalid && (companyForm.controls['code'].dirty || companyForm.controls['code'].touched))" class="alert alert-danger">
 
                 <div *ngIf="code.errors?.['required']">
                   Code is required.
@@ -52,7 +52,7 @@
               <label class="p-t-b-10">Share Price<span class="requiredStar">*</span></label>
             </div>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="sharePrice" 
+              <input type="number" class="form-control" id="sharePrice" 
                      [(ngModel)]="addCompanyForm.sharePrice" name="sharePrice" #sharePrice="ngModel"
                      pattern="^[0-9]+(\.[0-9]{0,4})?$">
              
@@ -62,8 +62,8 @@
           
         </div>
         <div class="table-footer">
-          <button class="btn btn-success" (click)="AddCompany(true)" >Submit</button>
-          <p>{{message}}</p>
+          <button class="btn btn-success" (click)="AddCompany(companyForm.valid)" [disabled]="!companyForm.valid" >Submit</button>
+          <p *ngIf="message">{{message}}</p>
         </div>
       </form>
     </div>
