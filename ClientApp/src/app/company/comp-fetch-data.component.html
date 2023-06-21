@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Company</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!compfetchdata"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="compfetchdata">
+  <thead>
+    <tr>
+
+
+      <th>Name</th>
+      <th>Code</th>
+      <th>Current Share Price</th>
+      <th>Created Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let compdata of compfetchdata">
+      <td>{{ compdata.companyName }}</td>
+      <td>{{ compdata.code }}</td>
+
+      <td>{{ compdata.sharePrice | number:'1.5'  }}</td>
+      <td>{{ compdata.createdDate | date :'dd-MMM-yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" [routerLink]="['/add-company']">New Company</button>

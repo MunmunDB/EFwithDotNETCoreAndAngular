@@ -1,0 +1,71 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>New Company</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/comp-fetch-data" class="btn btn-success back">
+              <i class='fas fa-arrow-circle-left'></i>
+              Back
+            </a>
+          </div>
+        </div>
+      </div>
+      <form #companyForm="ngForm" >
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="companyName" class="p-t-b-10">Company Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="companyName" required maxlength="100"
+                     [(ngModel)]="addCompanyForm.companyName" name="companyName" #companyName="ngModel">
+              <div *ngIf="companyForm.controls['companyName'].invalid && (companyForm.controls['companyName'].dirty || companyForm.controls['companyName'].touched)" class="alert alert-danger">
+
+                <div *ngIf="companyName.errors?.['required']">
+                  Name is required.
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="code" class="p-t-b-10">Code<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="code" required maxlength="10" pattern="^[A-Z0-9_-]*$"
+                     [(ngModel)]="addCompanyForm.code" name="code" #code="ngModel">
+              <div *ngIf="companyForm.controls['code'].invalid && (companyForm.controls['code'].dirty || companyForm.controls['code'].touched)" class="alert alert-danger">
+
+                <div *ngIf="code.errors?.['required']">
+                  Code is required.
+                </div>
+                </div>
+              </div>
+            </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Share Price<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="sharePrice" 
+                     [(ngModel)]="addCompanyForm.sharePrice" name="sharePrice" #sharePrice="ngModel"
+                     pattern="^[0-9]+(\.[0-9]{0,4})?$">
+             
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="AddCompany(true)" >Submit</button>
+          <p>{{message}}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
