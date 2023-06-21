@@ -13,6 +13,6 @@ export class CompanyService {
 
   AddCompany(data: Company): Observable<CompanyResponse> {
     console.log(data);
-    return this.httpclient.post<CompanyResponse>(this.baseUrl + 'weatherforecast/AddCompany', data);
+    return this.httpclient.post<CompanyResponse>(this.baseUrl + 'Company/AddCompany', data);
   }
 }

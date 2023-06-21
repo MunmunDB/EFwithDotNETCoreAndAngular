@@ -23,7 +23,7 @@ export class AddCompanyComponent implements OnInit {
   AddCompany(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.message = 'create record';
+      
       this.service.AddCompany(this.addCompanyForm).subscribe(p => {
         console.log(p);
         this.message = p.message;
