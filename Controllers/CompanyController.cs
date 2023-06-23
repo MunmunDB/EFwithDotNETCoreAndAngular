@@ -1,6 +1,8 @@
 ﻿using DataAccessLayer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Project1.Business;
+using System.Collections.Generic;
 
 namespace Project1.Controllers
 {
@@ -26,10 +28,17 @@ namespace Project1.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("[action]", Name = "GetCompany")]
-        public IEnumerable<Company> GetCompany()
+        public IActionResult GetCompany()
         {
-
-           return companybusiness.GetAll(); 
+            try
+            {
+                var result = companybusiness.GetAll();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
         }
 
@@ -41,7 +50,7 @@ namespace Project1.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("[action]", Name = "AddCompany")]
-        public ActionResult AddCompany(Company newrecord)
+        public IActionResult AddCompany(Company newrecord)
         {
             try
             {
@@ -52,15 +61,14 @@ namespace Project1.Controllers
                 else
                 {
                     var msg = companybusiness.AddNew(newrecord);
-                    
-                    return StatusCode(StatusCodes.Status200OK, msg);
+
+                    return Ok(msg);
                 }
                  
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error retrieving data from the database");
+                return BadRequest(ex.Message);
             }
            
         }
