@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -21,11 +21,15 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="DataAccessLayer\**" />
+    <Compile Remove="TestBusiness\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="DataAccessLayer\**" />
+    <Content Remove="TestBusiness\**" />
     <EmbeddedResource Remove="DataAccessLayer\**" />
+    <EmbeddedResource Remove="TestBusiness\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="DataAccessLayer\**" />
+    <None Remove="TestBusiness\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
